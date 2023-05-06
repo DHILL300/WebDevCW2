@@ -1,0 +1,18 @@
+<html>
+<div class="text-center"><title>{{title}}</title></div>
+<head>
+ {{>header}}
+</head>
+<body class="container">
+<div class="text-center"><h2>{{title}}</h2></div>
+<form method="post" action="/deleteGoal">
+    <div class="form-group">
+    {{user-name-error}}
+    <label for="_id">Goal ID</label>
+    <input type="text" class="form-control" id="_id" name="_id" placeholder="Enter Goal ID" required>
+    </div>   
+    <input type="submit" value="Delete" class="btn btn-primary">
+    </div>
+</form>
+</body>
+</html>

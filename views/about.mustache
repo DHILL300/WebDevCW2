@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html land="eng">
+<head>
+    {{#user}}
+    {{>header}}
+    {{/user}}
+    <title>Your Fitness Pal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body class="container">
+    <div class="text-center"><h1>Your Fitness Pal </h1></div>
+    <div class="text-center"><p>Good health starts with what you eat ! Here at Your Fitness Pal we encourage accountability and goal setting as a path to a successfull and healthy life</p></div>
+    <div><img src="../public/img/fitness1.png" alt="fitness silhoette" width="500" height="600"></img></div>
+    <div class="text-center">
+    {{^user}}
+        <a id="login" href="/register" class="btn btn-primary">Register</a>
+        <a id="login" href="/login" class="btn btn-primary">Sign In</a>
+    {{/user}}
+    {{#user}}
+        <a id="logout" href="/logout" class="btn btn-primary">Log Out<a/>
+    {{/user}}
+    </div>
+</body>
+</html>

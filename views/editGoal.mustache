@@ -1,0 +1,35 @@
+<html>
+<div class="text-center"><title>{{title}}</title></div>
+<head>
+ {{>header}}
+</head>
+<body class="container">
+<div class="text-center"><h2>Update Goal</h2></div>
+<form method="post" action="/editGoal">
+    <div class="form-group">
+        {{user-name-error}}
+        <label for="_id">ID</label>
+        <input type="text" class="form-control" id="_id" name="_id" placeholder="ID" required>
+        </div>
+        <br>
+        <label for="contents">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+        </div>
+        <br>
+        <label for="contents">Details</label>
+        <input type="text" class="form-control" id="contents" name="contents" placeholder="Details" required>
+        </div>
+        <br>
+        <label for="category">Category</label>
+        <input type="text" class="form-control" id="category" name="category" placeholder="Category" required>
+        </div>
+        <br>
+        <label for="status">Status</label>
+        <input type="text" class="form-control" id="status" name="status" placeholder="Status" required>
+        <br>
+        <input type="submit" value="register" class="btn btn-primary">
+    </div>
+</form>
+</body>
+</html>
+

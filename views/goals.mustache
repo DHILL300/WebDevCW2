@@ -1,0 +1,24 @@
+<html>
+<title>{{title}}</title>
+    <div class="text-center"><head>{{>header}}</head></div>
+<br>
+<body class="container">
+<div class=text-center">  
+    {{#goals}}
+     <div><h5>Goal ID: {{_id}}</h5></div>
+       <div> <p>Name: {{name}}</p>
+        <p>Details: {{contents}}</p>
+        <p>Category: {{category}}</p>
+        <p>Status: {{status}}</p>
+        <p>Date: {{published}}</p>
+        <p>Author: {{author}}</p>
+        <br>
+    </div>
+</div>
+    {{/goals}}
+    {{^goals}}
+        No Goals Yet.
+    {{/goals}}
+</body>
+
+</html>
