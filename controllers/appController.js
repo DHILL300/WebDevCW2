@@ -80,7 +80,7 @@ exports.post_new_user = function(req,res) {
     userDAO.lookup(user, function(err, u) {
         
         if (u) {  
-            res.send(401, "User exists:", user);
+        // res.send(401, "User exists:", user);
            res.redirect('/login');
             return;
         }
