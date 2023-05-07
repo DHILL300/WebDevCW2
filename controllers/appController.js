@@ -9,7 +9,18 @@ db.init();
 
 
 exports.about = function(req, res) {
-    res.render('about');
+    const userInfo = os.userInfo();
+
+// get uid property
+// from the userInfo object
+const uid = userInfo.uid;
+
+console.log(uid);
+
+    const duffel = {src: "duf1.jpeg"}
+    res.render('about', {
+        'image': duffel
+    });
     
 }
 
@@ -76,7 +87,7 @@ exports.post_new_user = function(req,res) {
 
     userDAO.lookup(user, function(err, u) {
         
-        if (u) {          
+        if (u) {          ç
             //res.status("User Exists:").send(user).render('/user/login');
             //res.send(401, "User exists:", user);
            res.redirect('/login');
