@@ -11,13 +11,21 @@
     <div class="text-center"><h1>Your Fitness Pal </h1></div>
     <div class="text-center"><p>Good health starts with what you eat ! Here at Your Fitness Pal we encourage accountability and goal setting as a path to a successfull and healthy life</p></div>
     <div class="text-center"><img src="/public/image/fitness1.png" alt="fitness silhoette" width="500" height="600" class="center"></div>
-    <div class="text-center">
+    <div class="text-left"<h4>"Your Goals Are The Road Maps Thats Guide You And Show You What Is Possible For Your Life"</h4><br><p class="text-left-center">Les Brown</p></div>
+    <br>
+    <br>
+    <div class="column" ><p>Your Fitness Pal is a one stop shop for self improvement, Register now to gain access to our full website where members can record daily goals and set tasks.</p></div>
+    <br>
+    <br>
+
     {{^user}}
-        <a id="login" href="/register" class="btn btn-primary">Register</a>
+        <div class="text-center"><a id="login" href="/register" class="btn btn-primary">Register</a>
         <a id="login" href="/login" class="btn btn-primary">Sign In</a>
+        </div>
     {{/user}}
     {{#user}}
         <a id="logout" href="/logout" class="btn btn-primary">Log Out<a/>
     {{/user}}
     </div>
 </body>
+</html>

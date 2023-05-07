@@ -9,14 +9,6 @@ db.init();
 
 
 exports.about = function(req, res) {
-    const userInfo = os.userInfo();
-
-// get uid property
-// from the userInfo object
-const uid = userInfo.uid;
-
-console.log(uid);
-
     const duffel = {src: "duf1.jpeg"}
     res.render('about', {
         'image': duffel
