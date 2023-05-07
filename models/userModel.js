@@ -2,7 +2,9 @@ const Datastore = require("nedb");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+// user class
 class UserDAO{
+    // constructor for user class
     constructor(dbFilePath) {
         if (dbFilePath){
         // embedded
@@ -54,7 +56,8 @@ class UserDAO{
     }
 }
 
+// create instance of user class and initialize 
 const dao = new UserDAO();
 dao.init();
-
+// export
 module.exports = dao;

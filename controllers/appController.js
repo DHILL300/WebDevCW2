@@ -7,33 +7,32 @@ const userDAO = require('../models/userModel');
 const db = new appDAO();
 db.init();
 
-
+// about view
 exports.about = function(req, res) {
-    const duffel = {src: "duf1.jpeg"}
-    res.render('about', {
-        'image': duffel
-    });
+    res.render('about');
     
 }
 
+// fitness voiew
 exports.fitness = function(req, res) {
      res.render('fitness', {
         'title': 'Fitness'
      });
 }
 
+// lifetstyle view
 exports.lifestyle = function(req, res) {
     res.render('lifestyle',{
         'title': 'Lifestyle'
     });
 }
-
+//nutition view
 exports.nutrition = function(req, res) {
     res.render('nutrition', {
         'title': 'Nutrition'
     });
 }
-
+// display goals view
 exports.displayGoals = function(req, res) {
     db.getAllEntries()
     .then((list) => {
@@ -48,13 +47,13 @@ exports.displayGoals = function(req, res) {
     })
     
 }
-
+// new goal view
 exports.newGoal = function(req,res) {
     res.render('new', {
         'title': 'New Goal'
     });
 }
-
+//new goal POST add new entry to database
 exports.post_new_goal = function(req,res) {
     console.log('processing post-goal-entry controller');
     if (!req.body.author) {
@@ -64,10 +63,11 @@ exports.post_new_goal = function(req,res) {
     db.addEntry(req.body.name, req.body.contents,req.body.category,req.body.status, req.body.author,);
     res.redirect('/goals');
 }
-
+// register view
 exports.show_register_page = function(req, res){
     res.render('user/register');
 }
+// new used POST
 exports.post_new_user = function(req,res) {
     const user = req.body.username;
     const password = req.body.password;
@@ -76,12 +76,11 @@ exports.post_new_user = function(req,res) {
         res.send(401, 'no user or password');
         return;
     }
-
+//searching the database for the passed in user
     userDAO.lookup(user, function(err, u) {
         
         if (u) {  
-            //res.status("User Exists:").send(user).render('/user/login');
-            //res.send(401, "User exists:", user);
+            res.send(401, "User exists:", user);
            res.redirect('/login');
             return;
         }
@@ -91,12 +90,14 @@ exports.post_new_user = function(req,res) {
     });
 }
 
+// log in view
 exports.show_login_page = function(req,res){
     res.render('user/login', {
         'title': 'Log In'
     });
 }
 
+// handle log in 
 exports.handle_login = function(req, res) {
     res.render('about', {
         'title': 'home page',
@@ -104,16 +105,17 @@ exports.handle_login = function(req, res) {
     });
 }
 
+// log out, clear cookie
 exports.logout = function(req,res) {
     res.clearCookie("jwt").status(200).redirect("/");
     
 }
 
-
+// edit goal view
 exports.show_edit_goal_page =  function (req, res) {
     res.render('editGoal');
 }
-
+// post edit goal, update database
 exports.post_edited_goal = function (req, res) {
     const goalId = req.body._id;
     const goalContents = req.body.contents;
@@ -128,13 +130,13 @@ exports.post_edited_goal = function (req, res) {
     res.redirect('/goals');
         
 }
-
+// delete goal view
 exports.show_delete_page = function (req,res) {
     res.render('deleteGoal', {
         'title': 'Delete Goal'
     });
 }
-
+// delete goal post
 exports.post_deleted_goal = function (req, res) {
     const goalDelete = req.body._id;
     console.log(goalDelete);

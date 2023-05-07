@@ -76,7 +76,7 @@ class AppGoals{
         }
        })
     }
-
+// get goal function 
     getGoal(search){
         var goal = search;
         // return a promise object, which can be resolved or rejected
@@ -95,7 +95,7 @@ class AppGoals{
             })
         })
     }
-
+    // delete giol function
     deleteGoal(goalId){
         var goalInput = goalId;
         return new Promise((resolve, reject) => {
