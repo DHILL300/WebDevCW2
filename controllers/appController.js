@@ -13,7 +13,7 @@ exports.about = function(req, res) {
     
 }
 
-// fitness voiew
+// fitness view
 exports.fitness = function(req, res) {
      res.render('fitness', {
         'title': 'Fitness'

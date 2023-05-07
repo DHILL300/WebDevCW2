@@ -6,6 +6,7 @@ const {verify} = require('../auth/auth');
 const controller = require('../controllers/appController');
 
 router.get("/", controller.about);
+router.get('/about', controller.about);
 
 router.get('/nutrition', verify, controller.nutrition);
 
@@ -25,7 +26,7 @@ router.get('/login', controller.show_login_page);
 router.post('/login', login, controller.handle_login);
 
 router.get('/logout', controller.logout);
-//router.get('/loggedIn', verify, controller.logged_in_landing);
+
 
 router.get('/editGoal', controller.show_edit_goal_page);
 router.post('/editGoal', controller.post_edited_goal);
